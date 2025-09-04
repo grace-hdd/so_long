@@ -28,6 +28,7 @@ SOURCES = main.c \
 		  validate_map.c \
 		  flood_fill.c \
 		  utils.c \
+		  string_utils.c \
 		  get_next_line.c \
 		  ft_split.c
 
