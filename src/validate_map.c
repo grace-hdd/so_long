@@ -59,7 +59,8 @@ int	check_map_walls(t_game *game)
 		x = 0;
 		while (x < game->map.width)
 		{
-			if (y == 0 || y == game->map.height - 1 || x == 0 || x == game->map.width - 1)
+			if (y == 0 || y == game->map.height - 1 || x == 0
+			|| x == game->map.width - 1)
 			{
 				if (game->map.grid[y][x] != '1')
 					error_exit("Error: Map must be surrounded by walls");

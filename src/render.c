@@ -59,7 +59,8 @@ void	render_player(t_game *game)
 
 	pixel_x = game->player.x * 64;
 	pixel_y = game->player.y * 64;
-	mlx_put_image_to_window(game->mlx, game->win, game->player_img, pixel_x, pixel_y);
+	mlx_put_image_to_window(game->mlx, game->win, game->player_img,
+		pixel_x, pixel_y);
 }
 
 void	load_textures(t_game *game)
@@ -69,11 +70,16 @@ void	load_textures(t_game *game)
 
 	width = 64;
 	height = 64;
-	game->wall_img = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm", &width, &height);
-	game->floor_img = mlx_xpm_file_to_image(game->mlx, "textures/floor.xpm", &width, &height);
-	game->collectible_img = mlx_xpm_file_to_image(game->mlx, "textures/collectible.xpm", &width, &height);
-	game->exit_img = mlx_xpm_file_to_image(game->mlx, "textures/exit.xpm", &width, &height);
-	game->player_img = mlx_xpm_file_to_image(game->mlx, "textures/player.xpm", &width, &height);
+	game->wall_img = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm",
+		&width, &height);
+	game->floor_img = mlx_xpm_file_to_image(game->mlx, "textures/floor.xpm",
+		&width, &height);
+	game->collectible_img = mlx_xpm_file_to_image(game->mlx,
+		"textures/collectible.xpm", &width, &height);
+	game->exit_img = mlx_xpm_file_to_image(game->mlx, "textures/exit.xpm",
+		&width, &height);
+	game->player_img = mlx_xpm_file_to_image(game->mlx, "textures/player.xpm",
+		&width, &height);
 	if (!game->wall_img || !game->floor_img || !game->collectible_img
 		|| !game->exit_img || !game->player_img)
 		error_exit("Error: Failed to load textures");

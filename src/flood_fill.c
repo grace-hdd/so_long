@@ -28,7 +28,7 @@ int	flood_fill(t_game *game, char **visited, int x, int y)
 }
 
 void	flood_fill_recursive(t_game *game, char **visited, int x, int y,
-		int *collectibles_found, int *exits_found)
+			int *collectibles_found, int *exits_found)
 {
 	if (x < 0 || x >= game->map.width || y < 0 || y >= game->map.height)
 		return;
@@ -39,10 +39,14 @@ void	flood_fill_recursive(t_game *game, char **visited, int x, int y,
 		(*collectibles_found)++;
 	if (game->map.grid[y][x] == 'E')
 		(*exits_found)++;
-	flood_fill_recursive(game, visited, x + 1, y, collectibles_found, exits_found);
-	flood_fill_recursive(game, visited, x - 1, y, collectibles_found, exits_found);
-	flood_fill_recursive(game, visited, x, y + 1, collectibles_found, exits_found);
-	flood_fill_recursive(game, visited, x, y - 1, collectibles_found, exits_found);
+	flood_fill_recursive(game, visited, x + 1, y, collectibles_found,
+		exits_found);
+	flood_fill_recursive(game, visited, x - 1, y, collectibles_found,
+		exits_found);
+	flood_fill_recursive(game, visited, x, y + 1, collectibles_found,
+		exits_found);
+	flood_fill_recursive(game, visited, x, y - 1, collectibles_found,
+		exits_found);
 }
 
 void	free_visited_array(char **visited, int height)
