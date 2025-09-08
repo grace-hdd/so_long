@@ -6,8 +6,6 @@
 # include <mlx.h>
 # include <stdio.h>
 # define SIZE 32
-/* Ghost color order:
- * (R)ed, (B)lue, Pin(K), (O)range, (G)reen, (Y)ellow, (P)urple */
 # define COLORS "RBKOGYP"
 enum e_direction
 {
