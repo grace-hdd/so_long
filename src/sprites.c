@@ -5,17 +5,17 @@ t_sprite	ft_initsprites(t_game *g)
 	int			size;
 	size = SIZE;
 	g->sprites.wall = mlx_xpm_file_to_image(g->id, \
-		"textures/Other/Walls/wall.xpm", &size, &size);
+		"textures/wall.xpm", &size, &size);
 	g->sprites.pacfood = mlx_xpm_file_to_image(g->id, \
-		"textures/Other/Pacdots/pacdot_food.xpm", &size, &size);
+		"textures/collectible.xpm", &size, &size);
 	g->sprites.portal = mlx_xpm_file_to_image(g->id, \
-		"textures/Other/Portal/portal.xpm", &size, &size);
+		"textures/exit.xpm", &size, &size);
 	g->sprites.logo = mlx_xpm_file_to_image(g->id, \
 		"textures/Other/Logo/logo.xpm", &size, &size);
 	g->sprites.pacman = mlx_xpm_file_to_image(g->id, \
 		"textures/Pac-Man/pac_closed.xpm", &size, &size);
 	g->sprites.black = mlx_xpm_file_to_image(g->id, \
-		"textures/Other/Walls/black.xpm", &size, &size);
+		"textures/black.xpm", &size, &size);
 	g->sprites.pac_dying = ft_load_pacdeath(g);
 	g->sprites.score_font = ft_load_score_font(g);
 	g->sprites.pac_dying_bak = g->sprites.pac_dying;

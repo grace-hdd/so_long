@@ -40,7 +40,7 @@ t_list	*ft_load_pacdeath(t_game *g)
 	while (c-- > '7')
 	{
 		ft_lstadd_back(&pacdeath, ft_lstnew(mlx_xpm_file_to_image(g->id, \
-			"textures/Other/Walls/black.xpm", &size, &size)));
+			"textures/black.xpm", &size, &size)));
 		ft_lstadd_back(&pacdeath, ft_lstnew(mlx_xpm_file_to_image(g->id, \
 			"textures/Pac-Man/Dying/pacman_woosh.xpm", &size, &size)));
 	}
