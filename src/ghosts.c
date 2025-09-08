@@ -8,7 +8,7 @@ t_list	*ft_chooseghcolor(t_game *g, int i, int dir)
 	j = 0;
 	anim = NULL;
 	s = NULL;
-	s = ft_substr("sprites/Ghosts/R/", 0, 17);
+	s = ft_substr("textures/Ghosts/R/", 0, 17);
 	if (i > 0)
 		ft_memset(&s[15], COLORS[i % 7], 1);
 	if (dir == N)
@@ -103,4 +103,4 @@ void	ft_move_ghost(int d, t_game *g, t_player *gh)
 		g->pac_dying = 1;
 		gh->pos = old;
 	}
-}
+}

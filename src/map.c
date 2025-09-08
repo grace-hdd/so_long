@@ -87,4 +87,4 @@ int	ft_print_map_error(t_err *map_err, char **map_str)
 	if (map_err->inv_n_collect)
 		error_msg_params("There should be at least one collectible!", map_str);
 	return (0);
-}
+}

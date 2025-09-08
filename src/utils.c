@@ -102,4 +102,4 @@ int	ft_reset(t_game *g)
 	printf("\n%sGAME HAS BEEN RESET!\n%s", YELLOW, DEFAULT);
 	ft_newgame(g, map, &lay);
 	return (1);
-}
+}

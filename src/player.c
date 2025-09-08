@@ -99,4 +99,4 @@ int	ft_update(t_game *g)
 		g->redraw = 0;
 	}
 	return (0);
-}
+}

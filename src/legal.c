@@ -47,4 +47,4 @@ int	ft_in_legal(t_player *player, int dir)
 	if (dir == ST)
 		return (1);
 	return (0);
-}
+}

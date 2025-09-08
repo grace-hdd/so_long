@@ -98,4 +98,4 @@ void	ft_check_game(t_game *g)
 		printf("%sCONGRATULATIONS, YOU WIN!%s\n\n", GREEN, DEFAULT);
 		end_game(g);
 	}
-}
+}

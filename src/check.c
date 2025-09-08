@@ -39,4 +39,4 @@ char	**check_map(int fd, t_lay *lay)
 	if (!map)
 		error_msg_params("Memory allocation error!", NULL);
 	return (map);
-}
+}

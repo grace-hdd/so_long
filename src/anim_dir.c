@@ -53,4 +53,4 @@ void	ft_anim_panic(t_game *g, t_player *pl)
 		temp->sprites.panic = temp->sprites.panic_bak;
 	mlx_put_image_to_window(g->id, g->w_id, temp->sprites.panic->content, \
 		temp->win_pos.x, temp->win_pos.y);
-}
+}

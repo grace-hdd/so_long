@@ -63,4 +63,4 @@ void	ft_next_dir(t_game *g)
 		}
 		pac = pac->next;
 	}
-}
+}

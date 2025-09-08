@@ -57,4 +57,4 @@ void	ft_playerlist(char **map, t_game *g)
 		}
 		y++;
 	}
-}
+}

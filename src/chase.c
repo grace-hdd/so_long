@@ -113,4 +113,4 @@ int	ft_findghost(t_player *pl, t_vector pos)
 		gh = gh->next;
 	}
 	return (0);
-}
+}
