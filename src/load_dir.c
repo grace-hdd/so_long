@@ -1,11 +1,8 @@
-
 #include "../inc/game.h"
-
 t_list	*ft_load_north(t_game *g, char *path, int i)
 {
 	t_list	*anim;
 	char	*s;
-
 	anim = NULL;
 	if (path)
 	{
@@ -29,12 +26,10 @@ t_list	*ft_load_north(t_game *g, char *path, int i)
 		"sprites/Pac-Man/pac_closed.xpm", &i, &i)));
 	return (anim);
 }
-
 t_list	*ft_load_south(t_game *g, char *path, int i)
 {
 	t_list	*anim;
 	char	*s;
-
 	anim = NULL;
 	if (path)
 	{
@@ -58,12 +53,10 @@ t_list	*ft_load_south(t_game *g, char *path, int i)
 		"sprites/Pac-Man/pac_closed.xpm", &i, &i)));
 	return (anim);
 }
-
 t_list	*ft_load_east(t_game *g, char *path, int i)
 {
 	t_list	*anim;
 	char	*s;
-
 	anim = NULL;
 	if (path)
 	{
@@ -87,12 +80,10 @@ t_list	*ft_load_east(t_game *g, char *path, int i)
 		"sprites/Pac-Man/pac_closed.xpm", &i, &i)));
 	return (anim);
 }
-
 t_list	*ft_load_west(t_game *g, char *path, int i)
 {
 	t_list	*anim;
 	char	*s;
-
 	anim = NULL;
 	if (path)
 	{
@@ -116,11 +107,9 @@ t_list	*ft_load_west(t_game *g, char *path, int i)
 		"sprites/Pac-Man/pac_closed.xpm", &i, &i)));
 	return (anim);
 }
-
 t_list	*ft_load_panic(t_game *g, int i)
 {
 	t_list	*anim;
-
 	anim = NULL;
 	ft_lstadd_back(&anim, ft_lstnew(mlx_xpm_file_to_image(g->id, \
 		"sprites/Ghosts/Panic/ghost_panic1a.xpm", &i, &i)));
@@ -131,4 +120,4 @@ t_list	*ft_load_panic(t_game *g, int i)
 	ft_lstadd_back(&anim, ft_lstnew(mlx_xpm_file_to_image(g->id, \
 		"sprites/Ghosts/Panic/ghost_panic2b.xpm", &i, &i)));
 	return (anim);
-}
+}

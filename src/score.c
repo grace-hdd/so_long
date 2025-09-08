@@ -1,14 +1,11 @@
-
 #include "../inc/game.h"
 #include <mlx.h>
 #include <unistd.h>
-
 void	ft_update_score(t_game *g)
 {
 	int	i;
 	int	score;
 	int	digit;
-
 	i = 0;
 	score = g->n_moves;
 	while (i < 4)
@@ -21,11 +18,9 @@ void	ft_update_score(t_game *g)
 		i++;
 	}
 }
-
 t_font	ft_load_score_font(t_game *g)
 {
 	int	size;
-
 	g->sprites.score_font.zero = mlx_xpm_file_to_image(g->id, \
 		"sprites/Other/Fonts/0.xpm", &size, &size);
 	g->sprites.score_font.one = mlx_xpm_file_to_image(g->id, \
@@ -50,11 +45,9 @@ t_font	ft_load_score_font(t_game *g)
 		"sprites/Other/Fonts/black.xpm", &size, &size);
 	return (g->sprites.score_font);
 }
-
 void	ft_put_font(t_game *g, int digit, int i)
 {
 	void	*font;
-
 	font = NULL;
 	if (digit == 0)
 		font = g->sprites.score_font.zero;
@@ -79,7 +72,6 @@ void	ft_put_font(t_game *g, int digit, int i)
 	mlx_put_image_to_window(g->id, g->w_id, font, \
 		g->width / 2 + 10 - 12 * i, g->height - 67);
 }
-
 void	free_fonts(t_game *g)
 {
 	mlx_destroy_image(g->id, g->sprites.score_font.black);
@@ -93,4 +85,4 @@ void	free_fonts(t_game *g)
 	mlx_destroy_image(g->id, g->sprites.score_font.seven);
 	mlx_destroy_image(g->id, g->sprites.score_font.eight);
 	mlx_destroy_image(g->id, g->sprites.score_font.nine);
-}
+}

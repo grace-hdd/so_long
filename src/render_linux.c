@@ -1,12 +1,9 @@
-
 #include "../inc/game.h"
 #include <mlx.h>
 #include <stdio.h>
-
 void	ft_redraw_pac(t_game *g)
 {
 	t_player	*pl;
-
 	pl = g->pl;
 	while (pl)
 	{
@@ -25,11 +22,9 @@ void	ft_redraw_pac(t_game *g)
 	}
 	ft_put_pacman(g);
 }
-
 void	ft_redraw_gh(t_game *g)
 {
 	t_player	*pl;
-
 	pl = g->gh;
 	while (pl)
 	{
@@ -52,7 +47,6 @@ void	ft_redraw_gh(t_game *g)
 	}
 	ft_put_ghosts(g);
 }
-
 void	ft_redraw_pacfood(t_game *g, t_player *pl)
 {
 	if (pl->dir == N && g->map[pl->pos.y + 1][pl->pos.x] == 'C')
@@ -68,7 +62,6 @@ void	ft_redraw_pacfood(t_game *g, t_player *pl)
 		mlx_put_image_to_window(g->id, g->w_id, g->sprites.pacfood, \
 			(pl->pos.x + 1) * SIZE, pl->pos.y * SIZE);
 }
-
 void	ft_redraw_exit(t_game *g, t_player *pl)
 {
 	if (pl->dir == N && g->map[pl->pos.y + 1][pl->pos.x] == 'E')
@@ -84,7 +77,6 @@ void	ft_redraw_exit(t_game *g, t_player *pl)
 		mlx_put_image_to_window(g->id, g->w_id, g->sprites.portal, \
 			(pl->pos.x + 1) * SIZE, pl->pos.y * SIZE);
 }
-
 void	ft_put_stopped(t_game *g, t_player *pl)
 {
 	if (pl->dir == N)
@@ -99,4 +91,4 @@ void	ft_put_stopped(t_game *g, t_player *pl)
 	if (pl->dir == W)
 		mlx_put_image_to_window(g->id, g->w_id, pl->sprites.left_bak->content, \
 			pl->pos.x * SIZE, pl->pos.y * SIZE);
-}
+}

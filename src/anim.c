@@ -1,10 +1,7 @@
-
 #include "../inc/game.h"
-
 void	ft_anim_pacdeath(t_game *g)
 {
 	t_player	*temp_pl;
-
 	temp_pl = g->pl;
 	while (temp_pl)
 	{
@@ -22,14 +19,12 @@ void	ft_anim_pacdeath(t_game *g)
 		end_game(g);
 	}
 }
-
 t_list	*ft_load_pacdeath(t_game *g)
 {
 	t_list	*pacdeath;
 	char	*s;
 	char	c;
 	int		size;
-
 	pacdeath = NULL;
 	s = ft_substr("sprites/Pac-Man/Dying/pacman_dying1.xpm", 0, 39);
 	c = '0';
@@ -51,11 +46,9 @@ t_list	*ft_load_pacdeath(t_game *g)
 	}
 	return (pacdeath);
 }
-
 void	free_animation(t_game *g, t_list *start)
 {
 	t_list		*temp;
-
 	temp = NULL;
 	while (start)
 	{
@@ -65,4 +58,4 @@ void	free_animation(t_game *g, t_list *start)
 			mlx_destroy_image(g->id, temp->content);
 		free(temp);
 	}
-}
+}

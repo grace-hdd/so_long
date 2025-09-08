@@ -1,12 +1,8 @@
-
 #include "../inc/check.h"
-
 int	error_msg_params(char *msg, char **map_str);
-
 t_lay	ft_newlayout(void)
 {
 	t_lay	lay;
-
 	lay.n_row = 0;
 	lay.n_col = 0;
 	lay.n_exit = 0;
@@ -15,11 +11,9 @@ t_lay	ft_newlayout(void)
 	lay.n_collect = 0;
 	return (lay);
 }
-
 char	**check_params(int argc, char **argv, t_lay *lay)
 {
 	int		fd;
-
 	if (argc != 2)
 		error_msg_params("Invalid number of arguments!", NULL);
 	fd = open(argv[1], O_RDONLY);
@@ -29,13 +23,11 @@ char	**check_params(int argc, char **argv, t_lay *lay)
 		error_msg_params("Invalid file type, use .ber!", NULL);
 	return (check_map(fd, lay));
 }
-
 char	**check_map(int fd, t_lay *lay)
 {
 	char	*map_str;
 	char	**map;
 	t_err	map_err;
-
 	map_str = NULL;
 	map = NULL;
 	map_err = ft_newmap_error();
@@ -47,4 +39,4 @@ char	**check_map(int fd, t_lay *lay)
 	if (!map)
 		error_msg_params("Memory allocation error!", NULL);
 	return (map);
-}
+}

@@ -1,12 +1,9 @@
-
 #include "../inc/game.h"
 #include <mlx.h>
 #include <stdio.h>
-
 t_player	*ft_plrnew(t_vector pos)
 {
 	t_player	*player;
-
 	player = malloc(sizeof(t_player));
 	if (!player)
 		return (NULL);
@@ -17,11 +14,9 @@ t_player	*ft_plrnew(t_vector pos)
 	player->next = NULL;
 	return (player);
 }
-
 void	ft_plradd_back(t_player **lst, t_player *newnode)
 {
 	t_player	*start;
-
 	start = *lst;
 	if (*lst)
 	{
@@ -32,12 +27,10 @@ void	ft_plradd_back(t_player **lst, t_player *newnode)
 	else
 		*lst = newnode;
 }
-
 int	ft_delete_player(t_game *g, t_vector old)
 {
 	t_player	*temp;
 	t_player	*prev;
-
 	temp = g->pl;
 	prev = NULL;
 	g->lay->n_pl--;
@@ -60,11 +53,9 @@ int	ft_delete_player(t_game *g, t_vector old)
 	}
 	return (1);
 }
-
 int	ft_checkmvtogh(t_game *g, int d, t_player *pl)
 {
 	t_player	*gh;
-
 	gh = g->gh;
 	while (gh)
 	{
@@ -82,12 +73,10 @@ int	ft_checkmvtogh(t_game *g, int d, t_player *pl)
 	}
 	return (g->pac_dying);
 }
-
 int	ft_update(t_game *g)
 {
 	int		x;
 	int		y;
-
 	y = 0;
 	g->n_frames++;
 	ft_check_game(g);
@@ -110,4 +99,4 @@ int	ft_update(t_game *g)
 		g->redraw = 0;
 	}
 	return (0);
-}
+}

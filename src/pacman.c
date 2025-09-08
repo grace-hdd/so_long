@@ -1,13 +1,10 @@
-
 #include "../inc/game.h"
 #include <mlx.h>
 #include <unistd.h>
-
 void	ft_load_pacmans(t_game *g)
 {
 	t_player	*pacman;
 	int			i;
-
 	i = 0;
 	pacman = g->pl;
 	while (pacman)
@@ -23,11 +20,9 @@ void	ft_load_pacmans(t_game *g)
 		pacman = pacman->next;
 	}
 }
-
 void	ft_put_pacman(t_game *g)
 {
 	t_player	*pacman;
-
 	pacman = g->pl;
 	while (pacman)
 	{
@@ -49,12 +44,10 @@ void	ft_put_pacman(t_game *g)
 		pacman = pacman->next;
 	}
 }
-
 void	ft_next_dir(t_game *g)
 {
 	t_player	*pac;
 	int			n_pl;
-
 	pac = g->pl;
 	n_pl = g->lay->n_pl;
 	while (pac)
@@ -70,4 +63,4 @@ void	ft_next_dir(t_game *g)
 		}
 		pac = pac->next;
 	}
-}
+}

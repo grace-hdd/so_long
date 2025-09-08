@@ -1,13 +1,10 @@
-
 #include "../inc/game.h"
 #include <mlx.h>
-
 t_list	*ft_chooseghcolor(t_game *g, int i, int dir)
 {
 	t_list	*anim;
 	char	*s;
 	int		j;
-
 	j = 0;
 	anim = NULL;
 	s = NULL;
@@ -25,12 +22,10 @@ t_list	*ft_chooseghcolor(t_game *g, int i, int dir)
 	free(s);
 	return (anim);
 }
-
 void	ft_load_ghosts(t_game *g)
 {
 	t_player	*ghost;
 	int			i;
-
 	i = 0;
 	ghost = g->gh;
 	while (ghost)
@@ -49,11 +44,9 @@ void	ft_load_ghosts(t_game *g)
 		i++;
 	}
 }
-
 void	ft_put_ghosts(t_game *g)
 {
 	t_player	*ghost;
-
 	ghost = g->gh;
 	while (ghost)
 	{
@@ -75,13 +68,11 @@ void	ft_put_ghosts(t_game *g)
 		ghost = ghost->next;
 	}
 }
-
 void	ft_update_ghosts(t_game *g)
 {
 	t_player	*ghost;
 	t_player	*closest;
 	int			dir;
-
 	ghost = g->gh;
 	while (ghost && !ghost->moving)
 	{
@@ -92,11 +83,9 @@ void	ft_update_ghosts(t_game *g)
 		ghost = ghost->next;
 	}
 }
-
 void	ft_move_ghost(int d, t_game *g, t_player *gh)
 {
 	t_vector	old;
-
 	old = ft_newvector(gh->pos.x, gh->pos.y);
 	ft_memset(&g->map[gh->pos.y][gh->pos.x], \
 		'0', g->map[gh->pos.y][gh->pos.x] == 'G');
@@ -114,4 +103,4 @@ void	ft_move_ghost(int d, t_game *g, t_player *gh)
 		g->pac_dying = 1;
 		gh->pos = old;
 	}
-}
+}

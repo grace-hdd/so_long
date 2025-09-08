@@ -1,13 +1,10 @@
-
 #include "../inc/game.h"
-
 t_player	*ft_getnearestpac(t_game *g, t_player *ghost)
 {
 	int			mindistance;
 	int			distance;
 	t_player	*pacman;
 	t_player	*closest;
-
 	pacman = g->pl;
 	closest = NULL;
 	mindistance = 0;
@@ -24,12 +21,10 @@ t_player	*ft_getnearestpac(t_game *g, t_player *ghost)
 	}
 	return (closest);
 }
-
 int	ft_choose_dir(t_game *g, t_player *gh, t_player *pac)
 {
 	int		len;
 	int		*distances;
-
 	ft_update_legal(g, gh);
 	ft_restrict_legal(gh);
 	len = ft_legal_len(gh);
@@ -53,11 +48,9 @@ int	ft_choose_dir(t_game *g, t_player *gh, t_player *pac)
 		return (W);
 	return (ST);
 }
-
 int	ft_advanced_dir(t_player *gh, t_player *pac, int *distances)
 {
 	int	i;
-
 	i = 0;
 	if (gh->legal.north)
 		distances[i++] = ft_euclideandistance(ft_newvector(gh->pos.x, \
@@ -82,13 +75,11 @@ int	ft_advanced_dir(t_player *gh, t_player *pac, int *distances)
 	distances[i] = -1;
 	return (ft_advanced_dir2(distances));
 }
-
 int	ft_advanced_dir2(int *distances)
 {
 	int	min;
 	int	i;
 	int	j;
-
 	i = -1;
 	j = 0;
 	min = -1;
@@ -111,11 +102,9 @@ int	ft_advanced_dir2(int *distances)
 		return (W);
 	return (ST);
 }
-
 int	ft_findghost(t_player *pl, t_vector pos)
 {
 	t_player	*gh;
-
 	gh = pl;
 	while (gh)
 	{
@@ -124,4 +113,4 @@ int	ft_findghost(t_player *pl, t_vector pos)
 		gh = gh->next;
 	}
 	return (0);
-}
+}

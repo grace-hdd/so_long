@@ -1,6 +1,4 @@
-
 #include "../inc/game.h"
-
 void	ft_update_legal(t_game *g, t_player *gh)
 {
 	gh->legal.north = (!ft_strchr("1G", g->map[gh->pos.y - 1][gh->pos.x]) \
@@ -12,7 +10,6 @@ void	ft_update_legal(t_game *g, t_player *gh)
 	gh->legal.west = (!ft_strchr("1G", g->map[gh->pos.y][gh->pos.x - 1]) \
 		&& !ft_findghost(g->gh, ft_newvector(gh->pos.x - 1, gh->pos.y)));
 }
-
 void	ft_restrict_legal(t_player *ghost)
 {
 	if (ft_legal_len(ghost) != 1)
@@ -27,11 +24,9 @@ void	ft_restrict_legal(t_player *ghost)
 			ghost->legal.east = 0;
 	}
 }
-
 int	ft_legal_len(t_player *player)
 {
 	int	count;
-
 	count = 0;
 	count += player->legal.north;
 	count += player->legal.south;
@@ -39,7 +34,6 @@ int	ft_legal_len(t_player *player)
 	count += player->legal.west;
 	return (count);
 }
-
 int	ft_in_legal(t_player *player, int dir)
 {
 	if (dir == N && player->legal.north)
@@ -53,4 +47,4 @@ int	ft_in_legal(t_player *player, int dir)
 	if (dir == ST)
 		return (1);
 	return (0);
-}
+}

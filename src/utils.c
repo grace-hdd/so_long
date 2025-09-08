@@ -1,12 +1,9 @@
-
 #include "../inc/game.h"
 #include <mlx.h>
 #include <unistd.h>
-
 void	ft_newdirection(t_game *g, int direction)
 {
 	t_player	*temp;
-
 	temp = g->pl;
 	if (g->n_moves < 9999)
 	{
@@ -19,11 +16,9 @@ void	ft_newdirection(t_game *g, int direction)
 		temp = temp->next;
 	}
 }
-
 void	ft_move(int d, t_game *g, t_player *temp)
 {
 	t_vector	nw;
-
 	if (temp && !ft_checkmvtogh(g, d, temp))
 	{
 		if (d == N && ft_strchr("0CE", g->map[temp->pos.y - 1][temp->pos.x]))
@@ -45,12 +40,10 @@ void	ft_move(int d, t_game *g, t_player *temp)
 			ft_swap_tile(ft_newvector(temp->pos.x, temp->pos.y), nw, g);
 	}
 }
-
 int	ft_swap_tile(t_vector old, t_vector nw, t_game *g)
 {
 	t_player	*player;
 	int			hide;
-
 	player = g->pl;
 	hide = 0;
 	if (g->map[nw.y][nw.x] == 'E')
@@ -74,11 +67,9 @@ int	ft_swap_tile(t_vector old, t_vector nw, t_game *g)
 	ft_memset(&g->map[old.y][old.x], '0', 1);
 	return (1);
 }
-
 void	ft_print_plrs(t_game *g)
 {
 	t_player	*head;
-
 	head = g->pl;
 	printf("PLAYERS: ");
 	while (head)
@@ -95,12 +86,10 @@ void	ft_print_plrs(t_game *g)
 	}
 	printf("\n");
 }
-
 int	ft_reset(t_game *g)
 {
 	t_lay	lay;
 	char	**map;
-
 	map = ft_dup_matrix(g->map_bak);
 	if (!map)
 		return (0);
@@ -113,4 +102,4 @@ int	ft_reset(t_game *g)
 	printf("\n%sGAME HAS BEEN RESET!\n%s", YELLOW, DEFAULT);
 	ft_newgame(g, map, &lay);
 	return (1);
-}
+}

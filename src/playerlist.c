@@ -1,10 +1,7 @@
-
 #include "../inc/game.h"
-
 void	ft_free_playerlist(t_game *g)
 {
 	t_player	*temp;
-
 	while (g->pl)
 	{
 		temp = g->pl;
@@ -20,11 +17,9 @@ void	ft_free_playerlist(t_game *g)
 		temp = NULL;
 	}
 }
-
 int	ft_deletefirst_plr(t_game *g)
 {
 	t_player	*head;
-
 	head = g->pl;
 	if (head->next)
 		g->pl = head->next;
@@ -34,11 +29,9 @@ int	ft_deletefirst_plr(t_game *g)
 	head = NULL;
 	return (1);
 }
-
 int	ft_deletelast_plr(t_game *g)
 {
 	t_player	*head;
-
 	head = g->pl;
 	while (head->next->next)
 		head = head->next;
@@ -46,12 +39,10 @@ int	ft_deletelast_plr(t_game *g)
 	head->next = NULL;
 	return (1);
 }
-
 void	ft_playerlist(char **map, t_game *g)
 {
 	int			x;
 	int			y;
-
 	y = 0;
 	while (map[y])
 	{
@@ -66,4 +57,4 @@ void	ft_playerlist(char **map, t_game *g)
 		}
 		y++;
 	}
-}
+}

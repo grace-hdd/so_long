@@ -1,9 +1,7 @@
-
 #include "../inc/map.h"
 #include "../libft/inc/libft.h"
 #include "../inc/colors.h"
 #include <stdio.h>
-
 int	error_msg_params(char *msg, char **map_str)
 {
 	if (map_str)
@@ -12,11 +10,9 @@ int	error_msg_params(char *msg, char **map_str)
 	exit(0);
 	return (0);
 }
-
 t_err	ft_newmap_error(void)
 {
 	t_err	map_err;
-
 	map_err.inv_borders = 0;
 	map_err.inv_char = 0;
 	map_err.inv_n_exits = 0;
@@ -26,12 +22,10 @@ t_err	ft_newmap_error(void)
 	map_err.inv_n_ghosts = 0;
 	return (map_err);
 }
-
 void	ft_readlayout(int fd, t_err *map_err, t_lay *lay, char **map_str)
 {
 	char		*line;
 	char		*last_line;
-
 	line = NULL;
 	last_line = NULL;
 	while (1)
@@ -53,7 +47,6 @@ void	ft_readlayout(int fd, t_err *map_err, t_lay *lay, char **map_str)
 		lay->n_row++;
 	}
 }
-
 void	ft_checklayout(char *line, t_err *map_err, t_lay *lay, int is_last)
 {
 	if (!lay->n_col)
@@ -79,7 +72,6 @@ void	ft_checklayout(char *line, t_err *map_err, t_lay *lay, int is_last)
 		line++;
 	}
 }
-
 int	ft_print_map_error(t_err *map_err, char **map_str)
 {
 	if (map_err->inv_rowlen)
@@ -95,4 +87,4 @@ int	ft_print_map_error(t_err *map_err, char **map_str)
 	if (map_err->inv_n_collect)
 		error_msg_params("There should be at least one collectible!", map_str);
 	return (0);
-}
+}

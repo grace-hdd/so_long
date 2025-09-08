@@ -1,8 +1,6 @@
-
 #include "../inc/game.h"
 #include <mlx.h>
 #include <stdio.h>
-
 int	key_hook(int key, t_game *g)
 {
 	if ((key == KEY_Q || key == KEY_ESC) && !g->pac_dying)
@@ -26,7 +24,6 @@ int	key_hook(int key, t_game *g)
 		ft_newdirection(g, W);
 	return (0);
 }
-
 int	end_game(t_game *g)
 {
 	free_sprites(g);
@@ -40,11 +37,9 @@ int	end_game(t_game *g)
 	exit(0);
 	return (0);
 }
-
 void	init_game(char **map, t_lay lay)
 {
 	t_game	g;
-
 	g.lay_bak = lay;
 	g.n_collect_bak = lay.n_collect;
 	g.map_bak = ft_dup_matrix(map);
@@ -53,7 +48,6 @@ void	init_game(char **map, t_lay lay)
 		lay.n_row * SIZE + 80, "Pac-Man");
 	ft_newgame(&g, map, &lay);
 }
-
 void	ft_newgame(t_game *g, char **m, t_lay *lay)
 {
 	g->n_frames = 1;
@@ -78,7 +72,6 @@ void	ft_newgame(t_game *g, char **m, t_lay *lay)
 	mlx_key_hook(g->w_id, key_hook, (void *)g);
 	mlx_loop(g->id);
 }
-
 void	ft_check_game(t_game *g)
 {
 	if (g->lay_bak.n_collect / 4 + 1 >= g->lay->n_collect && g->lay->n_gh)
@@ -102,4 +95,4 @@ void	ft_check_game(t_game *g)
 		printf("%sCONGRATULATIONS, YOU WIN!%s\n\n", GREEN, DEFAULT);
 		end_game(g);
 	}
-}
+}

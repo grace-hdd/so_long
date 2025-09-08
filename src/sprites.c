@@ -1,11 +1,8 @@
-
 #include "../inc/game.h"
 #include <mlx.h>
-
 t_sprite	ft_initsprites(t_game *g)
 {
 	int			size;
-
 	size = SIZE;
 	g->sprites.wall = mlx_xpm_file_to_image(g->id, \
 		"sprites/Other/Walls/wall.xpm", &size, &size);
@@ -24,7 +21,6 @@ t_sprite	ft_initsprites(t_game *g)
 	g->sprites.pac_dying_bak = g->sprites.pac_dying;
 	return (g->sprites);
 }
-
 int	free_sprites(t_game *g)
 {
 	mlx_destroy_image(g->id, g->sprites.wall);
@@ -38,12 +34,10 @@ int	free_sprites(t_game *g)
 	free_animation(g, g->sprites.pac_dying_bak);
 	return (0);
 }
-
 void	free_players(t_game *g)
 {
 	t_player	*ghost;
 	t_player	*pacman;
-
 	ghost = g->gh;
 	pacman = g->pl;
 	while (ghost)
@@ -64,7 +58,6 @@ void	free_players(t_game *g)
 		pacman = pacman->next;
 	}
 }
-
 void	ft_free_singlepl(t_game *g, t_player *pl)
 {
 	free_animation(g, pl->sprites.up_bak);
@@ -72,7 +65,6 @@ void	ft_free_singlepl(t_game *g, t_player *pl)
 	free_animation(g, pl->sprites.left_bak);
 	free_animation(g, pl->sprites.right_bak);
 }
-
 void	ft_put_map(t_game *g, int x, int y)
 {
 	if (g->map[y][x] == '1')
@@ -84,4 +76,4 @@ void	ft_put_map(t_game *g, int x, int y)
 	if (g->map[y][x] == 'C')
 		mlx_put_image_to_window(g->id, g->w_id, g->sprites.pacfood, \
 			x * SIZE, y * SIZE);
-}
+}
