@@ -1,7 +1,7 @@
 #include "../inc/game.h"
 #include <mlx.h>
 #include <stdio.h>
-t_player	*ft_plrnew(t_vector pos)
+t_player	*create_character(t_vector pos)
 {
 	t_player	*player;
 	player = malloc(sizeof(t_player));
@@ -14,7 +14,7 @@ t_player	*ft_plrnew(t_vector pos)
 	player->next = NULL;
 	return (player);
 }
-void	ft_plradd_back(t_player **lst, t_player *newnode)
+void	add_character_to_list(t_player **lst, t_player *newnode)
 {
 	t_player	*start;
 	start = *lst;

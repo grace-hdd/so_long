@@ -1,17 +1,17 @@
 #include "../inc/check.h"
 int	error_msg_params(char *msg, char **map_str);
-t_lay	ft_newlayout(void)
+t_lay	create_level_info(void)
 {
-	t_lay	lay;
-	lay.n_row = 0;
-	lay.n_col = 0;
-	lay.n_exit = 0;
-	lay.n_pl = 0;
-	lay.n_gh = 0;
-	lay.n_collect = 0;
-	return (lay);
+	t_lay	level_info;
+	level_info.n_row = 0;
+	level_info.n_col = 0;
+	level_info.n_exit = 0;
+	level_info.n_pl = 0;
+	level_info.n_gh = 0;
+	level_info.n_collect = 0;
+	return (level_info);
 }
-char	**check_params(int argc, char **argv, t_lay *lay)
+char	**validate_arguments(int argc, char **argv, t_lay *lay)
 {
 	int		fd;
 	if (argc != 2)
