@@ -10,9 +10,9 @@ BIN_DIR = bin
 NAME = so_long
 TARGET = $(BIN_DIR)/$(NAME)
 
-SOURCES = main.c map.c player.c check.c game_mac.c sprites.c \
+SOURCES = main.c level.c character.c validation.c game_mac.c graphics.c \
           utils.c anim.c render_mac.c playerlist.c \
-          ghosts.c pacman.c chase.c legal.c \
+          enemies.c pacman.c ai.c rules.c \
           score.c load_dir.c anim_dir.c
 
 OBJECTS = $(SOURCES:%.c=$(OBJ_DIR)/%.o)

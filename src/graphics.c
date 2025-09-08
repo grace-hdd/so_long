@@ -1,12 +1,12 @@
 #include "../inc/game.h"
 #include <mlx.h>
-t_sprite	ft_initsprites(t_game *g)
+t_sprite	initialize_graphics(t_game *g)
 {
 	int			size;
 	size = SIZE;
 	g->sprites.wall = mlx_xpm_file_to_image(g->id, \
 		"textures/wall.xpm", &size, &size);
-	g->sprites.pacfood = mlx_xpm_file_to_image(g->id, \
+	g->sprites.collectible = mlx_xpm_file_to_image(g->id, \
 		"textures/collectible.xpm", &size, &size);
 	g->sprites.portal = mlx_xpm_file_to_image(g->id, \
 		"textures/exit.xpm", &size, &size);
@@ -21,10 +21,10 @@ t_sprite	ft_initsprites(t_game *g)
 	g->sprites.pac_dying_bak = g->sprites.pac_dying;
 	return (g->sprites);
 }
-int	free_sprites(t_game *g)
+int	cleanup_graphics(t_game *g)
 {
 	mlx_destroy_image(g->id, g->sprites.wall);
-	mlx_destroy_image(g->id, g->sprites.pacfood);
+	mlx_destroy_image(g->id, g->sprites.collectible);
 	mlx_destroy_image(g->id, g->sprites.portal);
 	mlx_destroy_image(g->id, g->sprites.logo);
 	mlx_destroy_image(g->id, g->sprites.pacman);
@@ -65,7 +65,7 @@ void	ft_free_singlepl(t_game *g, t_player *pl)
 	free_animation(g, pl->sprites.left_bak);
 	free_animation(g, pl->sprites.right_bak);
 }
-void	ft_put_map(t_game *g, int x, int y)
+void	render_tile(t_game *g, int x, int y)
 {
 	if (g->map[y][x] == '1')
 		mlx_put_image_to_window(g->id, g->w_id, g->sprites.wall, \
@@ -74,6 +74,6 @@ void	ft_put_map(t_game *g, int x, int y)
 		mlx_put_image_to_window(g->id, g->w_id, g->sprites.portal, \
 			x * SIZE, y * SIZE);
 	if (g->map[y][x] == 'C')
-		mlx_put_image_to_window(g->id, g->w_id, g->sprites.pacfood, \
+		mlx_put_image_to_window(g->id, g->w_id, g->sprites.collectible, \
 			x * SIZE, y * SIZE);
 }
