@@ -26,7 +26,7 @@ t_list	*ft_load_pacdeath(t_game *g)
 	char	c;
 	int		size;
 	pacdeath = NULL;
-	s = ft_substr("sprites/Pac-Man/Dying/pacman_dying1.xpm", 0, 39);
+	s = ft_substr("textures/Pac-Man/Dying/pacman_dying1.xpm", 0, 39);
 	c = '0';
 	while (c++ < '8' + 1)
 	{
@@ -36,13 +36,13 @@ t_list	*ft_load_pacdeath(t_game *g)
 	}
 	free(s);
 	ft_lstadd_back(&pacdeath, ft_lstnew(mlx_xpm_file_to_image(g->id, \
-		"sprites/Pac-Man/Dying/pacman_dying10.xpm", &size, &size)));
+		"textures/Pac-Man/Dying/pacman_dying10.xpm", &size, &size)));
 	while (c-- > '7')
 	{
 		ft_lstadd_back(&pacdeath, ft_lstnew(mlx_xpm_file_to_image(g->id, \
-			"sprites/Other/Walls/black.xpm", &size, &size)));
+			"textures/black.xpm", &size, &size)));
 		ft_lstadd_back(&pacdeath, ft_lstnew(mlx_xpm_file_to_image(g->id, \
-			"sprites/Pac-Man/Dying/pacman_woosh.xpm", &size, &size)));
+			"textures/Pac-Man/Dying/pacman_woosh.xpm", &size, &size)));
 	}
 	return (pacdeath);
 }
@@ -58,4 +58,4 @@ void	free_animation(t_game *g, t_list *start)
 			mlx_destroy_image(g->id, temp->content);
 		free(temp);
 	}
-}
+}

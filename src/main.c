@@ -4,9 +4,9 @@
 #include <stdio.h>
 int	main(int argc, char **argv)
 {
-	char	**map;
-	t_lay	lay;
-	map = check_params(argc, argv, &lay);
-	init_game(map, lay);
+	char	**level_data;
+	t_lay	level_info;
+	level_data = validate_arguments(argc, argv, &level_info);
+	start_game(level_data, level_info);
 	return (0);
 }

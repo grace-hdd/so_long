@@ -22,27 +22,27 @@ t_font	ft_load_score_font(t_game *g)
 {
 	int	size;
 	g->sprites.score_font.zero = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/0.xpm", &size, &size);
+		"textures/Other/Fonts/0.xpm", &size, &size);
 	g->sprites.score_font.one = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/1.xpm", &size, &size);
+		"textures/Other/Fonts/1.xpm", &size, &size);
 	g->sprites.score_font.two = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/2.xpm", &size, &size);
+		"textures/Other/Fonts/2.xpm", &size, &size);
 	g->sprites.score_font.three = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/3.xpm", &size, &size);
+		"textures/Other/Fonts/3.xpm", &size, &size);
 	g->sprites.score_font.four = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/4.xpm", &size, &size);
+		"textures/Other/Fonts/4.xpm", &size, &size);
 	g->sprites.score_font.five = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/5.xpm", &size, &size);
+		"textures/Other/Fonts/5.xpm", &size, &size);
 	g->sprites.score_font.six = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/6.xpm", &size, &size);
+		"textures/Other/Fonts/6.xpm", &size, &size);
 	g->sprites.score_font.seven = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/7.xpm", &size, &size);
+		"textures/Other/Fonts/7.xpm", &size, &size);
 	g->sprites.score_font.eight = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/8.xpm", &size, &size);
+		"textures/Other/Fonts/8.xpm", &size, &size);
 	g->sprites.score_font.nine = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/9.xpm", &size, &size);
+		"textures/Other/Fonts/9.xpm", &size, &size);
 	g->sprites.score_font.black = mlx_xpm_file_to_image(g->id, \
-		"sprites/Other/Fonts/black.xpm", &size, &size);
+		"textures/Other/Fonts/black.xpm", &size, &size);
 	return (g->sprites.score_font);
 }
 void	ft_put_font(t_game *g, int digit, int i)
@@ -85,4 +85,4 @@ void	free_fonts(t_game *g)
 	mlx_destroy_image(g->id, g->sprites.score_font.seven);
 	mlx_destroy_image(g->id, g->sprites.score_font.eight);
 	mlx_destroy_image(g->id, g->sprites.score_font.nine);
-}
+}

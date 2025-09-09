@@ -1,0 +1,10 @@
+[33m7cf9990[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Rename functions and variables to make code more unique - Part 2
+[33mbf4cc2e[m Rename files and functions to make code more unique - Part 1
+[33m8d9209c[m Move essential sprites to main textures folder and update paths
+[33m95d0510[m Update sprite paths to use textures/ folder and remove unused sprites
+[33m1b961e5[m Rename folders to match requirements and remove Windows-specific files
+[33m9253339[m Remove all references to original repository from MAPS.md
+[33m924d517[m[33m ([m[1;31morigin/master[m[33m)[m Remove all comments from Makefile
+[33m275a5b4[m Remove all remaining comments from source and header files
+[33mfe882b1[m Remove all comments from source code for cleaner implementation
+[33m7aa01e0[m Initial commit: Complete so_long implementation with Pac-Man game features

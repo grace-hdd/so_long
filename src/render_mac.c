@@ -91,4 +91,4 @@ void	ft_put_stopped(t_game *g, t_player *pl)
 	if (pl->dir == W)
 		mlx_put_image_to_window(g->id, g->w_id, pl->sprites.left_bak->content, \
 			pl->pos.x * SIZE, pl->pos.y * SIZE);
-}
+}
