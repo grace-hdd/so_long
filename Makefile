@@ -13,7 +13,7 @@ TARGET = $(BIN_DIR)/$(NAME)
 SOURCES = main.c level.c character.c validation.c game_mac.c graphics.c \
           utils.c anim.c render_mac.c playerlist.c \
           enemies.c pacman.c ai.c rules.c \
-          score.c load_dir.c anim_dir.c
+          score.c load_dir.c anim_dir.c ft_euclideandistance.c
 
 OBJECTS = $(SOURCES:%.c=$(OBJ_DIR)/%.o)
 

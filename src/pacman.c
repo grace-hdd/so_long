@@ -1,5 +1,5 @@
 #include "../inc/game.h"
-#include <mlx.h>
+#include <../minilibx-linux/mlx.h>
 #include <unistd.h>
 void	ft_load_pacmans(t_game *g)
 {

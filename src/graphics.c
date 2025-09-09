@@ -1,5 +1,6 @@
 #include "../inc/game.h"
-#include <mlx.h>
+#include <../minilibx-linux/mlx.h>
+
 t_sprite	initialize_graphics(t_game *g)
 {
 	int			size;

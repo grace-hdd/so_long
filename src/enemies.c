@@ -1,5 +1,5 @@
 #include "../inc/game.h"
-#include <mlx.h>
+#include <../minilibx-linux/mlx.h>
 t_list	*ft_chooseghcolor(t_game *g, int i, int dir)
 {
 	t_list	*anim;

@@ -1,5 +1,5 @@
 #include "../inc/game.h"
-#include <mlx.h>
+#include <../minilibx-linux/mlx.h>
 #include <stdio.h>
 void	ft_redraw_pac(t_game *g)
 {

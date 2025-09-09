@@ -1,12 +1,29 @@
 #ifndef GAME_H
 # define GAME_H
+
 # include "map.h"
 # include "colors.h"
-# include "../libft/inc/libft.h"
-# include <mlx.h>
+# include "../libft/libft.h"
+# include <../minilibx-linux/mlx.h>
 # include <stdio.h>
+# include "vector.h"
 # define SIZE 32
 # define COLORS "RBKOGYP"
+
+#define KEY_Q      12
+#define KEY_ESC    53
+#define KEY_R      15
+#define KEY_UP     126
+#define KEY_W      13
+#define KEY_DOWN   125
+#define KEY_S      1
+#define KEY_RIGHT  124
+#define KEY_D      2
+#define KEY_LEFT   123
+#define KEY_A      0
+
+#define GAME_RATE  60
+
 enum e_direction
 {
 	ST = 0,
@@ -15,6 +32,7 @@ enum e_direction
 	E = 2,
 	W = -2
 };
+
 typedef struct s_font
 {
 	void	*zero;
@@ -29,6 +47,7 @@ typedef struct s_font
 	void	*nine;
 	void	*black;
 }				t_font;
+
 typedef struct s_pl_sprite
 {
 	t_list	*up;
@@ -42,6 +61,7 @@ typedef struct s_pl_sprite
 	t_list	*panic;
 	t_list	*panic_bak;
 }				t_pl_sprite;
+
 typedef struct s_sprite
 {
 	void		*logo;
@@ -51,10 +71,12 @@ typedef struct s_sprite
 	void		*pacman;
 	void		*pixels;
 	void		*black;
+	void		*collectible;
 	t_list		*pac_dying_bak;
 	t_list		*pac_dying;
 	t_font		score_font;
 }				t_sprite;
+
 typedef struct s_legal_actions
 {
 	int	north;
@@ -62,6 +84,7 @@ typedef struct s_legal_actions
 	int	east;
 	int	west;
 }				t_legal_actions;
+
 typedef struct s_player
 {
 	t_vector		pos;
@@ -72,6 +95,7 @@ typedef struct s_player
 	t_legal_actions	legal;
 	struct s_player	*next;
 }				t_player;
+
 typedef struct s_game
 {
 	int			width;
@@ -94,6 +118,7 @@ typedef struct s_game
 	int			redraw;
 	int			g_rate;
 }				t_game;
+
 void		init_game(char **map, t_lay lay);
 void		ft_newgame(t_game *g, char **m, t_lay *lay);
 int			end_game(t_game *g);
@@ -157,4 +182,6 @@ void		ft_anim_east(t_game *g, t_player *pl);
 void		ft_anim_west(t_game *g, t_player *pl);
 void		ft_anim_panic(t_game *g, t_player *pl);
 void		ft_put_stopped(t_game *g, t_player *pl);
-#endif
+void		start_game(char **level_data, t_lay level_info);
+
+#endif

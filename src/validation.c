@@ -19,7 +19,7 @@ char	**validate_arguments(int argc, char **argv, t_lay *lay)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		error_msg_params("File not found!", NULL);
-	if (ft_strrncmp(argv[1], ".ber", 4))
+	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".ber", 4))
 		error_msg_params("Invalid file type, use .ber!", NULL);
 	return (check_map(fd, lay));
 }

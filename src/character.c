@@ -1,6 +1,8 @@
 #include "../inc/game.h"
-#include <mlx.h>
+#include <../minilibx-linux/mlx.h>
+#include "../inc/vector.h"
 #include <stdio.h>
+
 t_player	*create_character(t_vector pos)
 {
 	t_player	*player;

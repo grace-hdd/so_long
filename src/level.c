@@ -1,5 +1,5 @@
 #include "../inc/map.h"
-#include "../libft/inc/libft.h"
+#include "../libft/libft.h"
 #include "../inc/colors.h"
 #include <stdio.h>
 int	error_msg_params(char *msg, char **map_str)
@@ -43,7 +43,7 @@ void	ft_readlayout(int fd, t_err *map_err, t_lay *lay, char **map_str)
 		free(last_line);
 		ft_checklayout(line, map_err, lay, !lay->n_row);
 		last_line = ft_substr(line, 0, ft_strlen(line));
-		*map_str = ft_strenlarge(*map_str, line);
+		*map_str = ft_strjoin(*map_str, line);
 		lay->n_row++;
 	}
 }
