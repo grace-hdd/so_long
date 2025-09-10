@@ -1,7 +1,6 @@
 #include "include/map.h"
 #include "include/utils.h"
 #include "include/game.h"
-#include "libft/libft.h"
 #include <stdlib.h>
 
 static void dfs_flood_fill(t_map *map, int x, int y, int **visited, 

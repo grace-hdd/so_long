@@ -2,7 +2,6 @@
 #include "include/utils.h"
 #include "include/map.h"
 #include "include/render.h"
-#include "libft/libft.h"
 #include <stdio.h>
 
 void move_player(t_game *game, int direction)

@@ -1,6 +1,5 @@
 #include "include/map.h"
 #include "include/utils.h"
-#include "libft/libft.h"
 #include <fcntl.h>
 #include <unistd.h>
 

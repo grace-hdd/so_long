@@ -1,7 +1,7 @@
 #include "include/game.h"
 #include "include/utils.h"
 #include "include/map.h"
-#include "libft/libft.h"
+
 
 void init_pacman_data(t_game *game)
 {
