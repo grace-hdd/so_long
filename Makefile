@@ -1,41 +1,38 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-LDFLAGS = -lmlx -framework OpenGL -framework AppKit
+CC      = gcc
+CFLAGS  = -Wall -Wextra -Werror
+LDFLAGS = -L./minilibx-linux -lmlx -lX11 -lXext -lm
 
-SRC_DIR = src
-INC_DIR = inc
-OBJ_DIR = obj
-BIN_DIR = bin
+NAME    = so_long
 
-NAME = so_long
-TARGET = $(BIN_DIR)/$(NAME)
+SRC     = src/main.c src/game.c src/game_init.c src/game_logic.c src/game_events.c \
+          src/map_loader.c src/map_validation.c src/map_pathfinding.c src/map_utils.c \
+          src/render_map.c src/render_textures.c \
+          src/error.c src/get_next_line.c \
+          libft/ft_strlen.c libft/ft_strjoin.c libft/ft_split.c \
+          libft/ft_substr.c libft/ft_strncmp.c libft/ft_strchr.c \
+          libft/ft_countchar.c libft/ft_malloc.c libft/ft_free.c \
+          libft/ft_strdup.c libft/ft_isdigit.c libft/ft_atoi.c
 
-SOURCES = main.c level.c character.c validation.c game_mac.c graphics.c \
-          utils.c anim.c render_mac.c playerlist.c \
-          enemies.c pacman.c ai.c rules.c \
-          score.c load_dir.c anim_dir.c ft_euclideandistance.c
+OBJ     = $(SRC:.c=.o)
 
-OBJECTS = $(SOURCES:%.c=$(OBJ_DIR)/%.o)
+INC     = -Isrc/include -I./minilibx-linux -Ilibft
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJECTS) | $(BIN_DIR)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $@ $(LDFLAGS)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+src/%.o: src/%.c
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
-$(BIN_DIR):
-	mkdir -p $(BIN_DIR)
+libft/%.o: libft/%.c
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(BIN_DIR)
+	rm -f $(NAME)
 
 re: fclean all
 

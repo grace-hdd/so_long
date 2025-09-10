@@ -1,12 +1,24 @@
-#include <fcntl.h>
-#include "../inc/check.h"
-#include "../inc/game.h"
-#include <stdio.h>
-int	main(int argc, char **argv)
+#include "include/game.h"
+#include "include/utils.h"
+
+int main(int argc, char **argv)
 {
-	char	**level_data;
-	t_lay	level_info;
-	level_data = validate_arguments(argc, argv, &level_info);
-	start_game(level_data, level_info);
-	return (0);
+    t_game *game;
+
+    if (argc != 2)
+        error_exit("Usage: ./so_long <map.ber>");
+    
+    game = init_game(argv[1]);
+    if (!game)
+        error_exit("Failed to initialize game");
+    
+    render_game(game);
+    
+    mlx_hook(game->win, 2, 1L << 0, handle_key, game);
+    mlx_hook(game->win, 17, 0, handle_close, game);
+    
+    mlx_loop(game->mlx);
+    
+    cleanup_game(game);
+    return (0);
 }
