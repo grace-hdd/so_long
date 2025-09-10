@@ -5,7 +5,8 @@ LDFLAGS = -L./minilibx-linux -lmlx -lX11 -lXext -lm
 NAME    = so_long
 
 SRC     = src/main.c src/game.c src/game_init.c src/game_logic.c src/game_events.c \
-          src/map_utils.c src/render_utils.c \
+          src/map_loader.c src/map_validation.c src/map_pathfinding.c src/map_utils.c \
+          src/render_map.c src/render_textures.c \
           src/error.c src/get_next_line.c \
           libft/ft_strlen.c libft/ft_strjoin.c libft/ft_split.c \
           libft/ft_substr.c libft/ft_strncmp.c libft/ft_strchr.c \
