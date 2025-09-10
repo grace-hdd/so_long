@@ -23,6 +23,7 @@ void move_player(t_game *game, int direction)
         {
             game->pacman->collected++;
             game->map->collectibles--;
+            game->map->data[new_y][new_x] = EMPTY;
         }
         
         if (game->map->data[new_y][new_x] == EXIT)
