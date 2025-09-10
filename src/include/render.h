@@ -5,7 +5,7 @@
 
 void render_game(t_game *game);
 void render_map(t_game *game);
-void draw_tile(t_game *game, int x, int y, int color);
+void draw_tile(t_game *game, int x, int y, char tile_type);
 void render_player(t_game *game);
 void render_ui(t_game *game);
 void load_textures(t_game *game);

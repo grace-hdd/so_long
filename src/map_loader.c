@@ -69,7 +69,7 @@ void calculate_map_dimensions(t_map *map)
     while (map->data[map->height])
         map->height++;
     
-    map->width = ft_strlen(map->data[0]);
+    map->width = (int)ft_strlen(map->data[0]);
 }
 
 void count_map_elements(t_map *map)

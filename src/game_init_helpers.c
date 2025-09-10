@@ -12,6 +12,8 @@ void init_pacman_data(t_game *game)
 	game->pacman->power_pellets_eaten = 0;
 	game->pacman->power_mode = 0;
 	game->pacman->power_timer = 0;
+	game->pacman->moves = 0;
+	game->pacman->collected = 0;
 	game->pacman->direction = RIGHT;
 	game->pacman->next_direction = RIGHT;
 	find_pacman_position(game);
@@ -28,7 +30,7 @@ void find_pacman_position(t_game *game)
 		x = 0;
 		while (x < game->map->width)
 		{
-			if (game->map->data[y][x] == PACMAN)
+			if (game->map->data[y][x] == PLAYER)
 			{
 				game->pacman->pos.x = x;
 				game->pacman->pos.y = y;

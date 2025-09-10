@@ -12,7 +12,7 @@
 #define COLLECTIBLE 'C'
 #define POWER_PELLET 'P'
 #define EXIT 'E'
-#define PLAYER 'M'
+#define PLAYER 'P'
 #define GHOST 'G'
 
 #define UP 0
@@ -70,6 +70,8 @@ typedef struct s_pacman {
     int power_pellets_eaten;
     int power_mode;
     int power_timer;
+    int moves;
+    int collected;
     t_animation anim_up;
     t_animation anim_down;
     t_animation anim_left;
@@ -108,6 +110,14 @@ typedef struct s_game {
     t_sprite exit_sprite;
     t_sprite pacman_sprite;
     t_sprite ghost_sprites[7];
+    
+    // Tile images for optimized rendering
+    void *img_wall;
+    void *img_floor;
+    void *img_collectible;
+    void *img_exit;
+    void *img_player;
+    void *img_ghost;
 } t_game;
 
 t_game *init_game(char *map_file);

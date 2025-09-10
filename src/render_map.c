@@ -4,38 +4,39 @@
 
 void render_map(t_game *game)
 {
-    for (int y = 0; y < game->map->height; y++)
-    {
-        for (int x = 0; x < game->map->width; x++)
-        {
-            int color = 0x000000;
-            
-            if (game->map->data[y][x] == WALL)
-                color = 0xFFFFFF;
-            else if (game->map->data[y][x] == COLLECTIBLE)
-                color = 0xFFFF00;
-            else if (game->map->data[y][x] == EXIT)
-                color = 0xFF0000;
-            else if (game->map->data[y][x] == PLAYER)
-                color = 0x00FF00;
-            else if (game->map->data[y][x] == GHOST)
-                color = 0xFF00FF;
-            
-            draw_tile(game, x, y, color);
-        }
-    }
+	int x;
+	int y;
+
+	y = 0;
+	while (y < game->map->height)
+	{
+		x = 0;
+		while (x < game->map->width)
+		{
+			draw_tile(game, x, y, game->map->data[y][x]);
+			x++;
+		}
+		y++;
+	}
 }
 
-void draw_tile(t_game *game, int x, int y, int color)
+void draw_tile(t_game *game, int x, int y, char tile_type)
 {
-    for (int py = 0; py < TILE_SIZE; py++)
-    {
-        for (int px = 0; px < TILE_SIZE; px++)
-        {
-			mlx_pixel_put(game->mlx, game->win, 
-				x * TILE_SIZE + px, y * TILE_SIZE + py, color);
-        }
-    }
+	void *tile_img;
+
+	tile_img = game->img_floor;
+	if (tile_type == WALL)
+		tile_img = game->img_wall;
+	else if (tile_type == COLLECTIBLE)
+		tile_img = game->img_collectible;
+	else if (tile_type == EXIT)
+		tile_img = game->img_exit;
+	else if (tile_type == PLAYER)
+		tile_img = game->img_player;
+	else if (tile_type == GHOST)
+		tile_img = game->img_ghost;
+	mlx_put_image_to_window(game->mlx, game->win, tile_img, 
+		x * TILE_SIZE, y * TILE_SIZE);
 }
 
 void render_player(t_game *game)

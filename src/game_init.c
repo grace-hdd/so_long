@@ -40,7 +40,7 @@ void find_pacman_position(t_game *game)
     {
         for (int x = 0; x < game->map->width; x++)
         {
-            if (game->map->data[y][x] == PACMAN)
+            if (game->map->data[y][x] == PLAYER)
             {
                 game->pacman->pos.x = x;
                 game->pacman->pos.y = y;

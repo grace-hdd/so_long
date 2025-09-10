@@ -10,7 +10,7 @@ int validate_map_rectangular(t_map *map)
 	y = 0;
 	while (y < map->height)
 	{
-		if (ft_strlen(map->data[y]) != map->width)
+		if ((int)ft_strlen(map->data[y]) != map->width)
 		{
 			error_exit("Map must be rectangular");
 			return (0);
