@@ -5,13 +5,20 @@
 
 void move_player(t_game *game, int direction)
 {
-    int new_x = game->pacman->pos.x;
-    int new_y = game->pacman->pos.y;
+    int new_x;
+    int new_y;
+
+    new_x = game->pacman->pos.x;
+    new_y = game->pacman->pos.y;
     
-    if (direction == 0) new_y--;
-    else if (direction == 1) new_y++;
-    else if (direction == 2) new_x--;
-    else if (direction == 3) new_x++;
+    if (direction == UP)
+        new_y--;
+    else if (direction == DOWN)
+        new_y++;
+    else if (direction == LEFT)
+        new_x--;
+    else if (direction == RIGHT)
+        new_x++;
     
     if (is_valid_move(game, new_x, new_y))
     {
@@ -32,7 +39,6 @@ void move_player(t_game *game, int direction)
         }
         
         game->map->data[new_y][new_x] = PLAYER;
-        
         printf("Moves: %d\n", game->pacman->moves);
         render_game(game);
     }
