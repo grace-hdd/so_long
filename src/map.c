@@ -10,8 +10,12 @@ void free_map(t_map *map)
 	{
 		if (map->data)
 		{
-			for (int i = 0; map->data[i]; i++)
+			int i = 0;
+			while (map->data[i])
+			{
 				free(map->data[i]);
+				i++;
+			}
 			free(map->data);
 		}
 		free(map);
@@ -38,8 +42,10 @@ int check_path(t_map *map, int start_x, int start_y)
 
 void print_map(t_map *map)
 {
-	for (int y = 0; y < map->height; y++)
+	int y = 0;
+	while (y < map->height)
 	{
 		printf("%s\n", map->data[y]);
+		y++;
 	}
 }

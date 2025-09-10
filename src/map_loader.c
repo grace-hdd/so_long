@@ -79,9 +79,11 @@ void count_map_elements(t_map *map)
     map->players = 0;
     map->ghosts = 0;
     
-    for (int y = 0; y < map->height; y++)
+    int y = 0;
+    while (y < map->height)
     {
-        for (int x = 0; x < map->width; x++)
+        int x = 0;
+        while (x < map->width)
         {
             if (map->data[y][x] == COLLECTIBLE)
                 map->collectibles++;
@@ -91,6 +93,8 @@ void count_map_elements(t_map *map)
                 map->players++;
             else if (map->data[y][x] == GHOST)
                 map->ghosts++;
+            x++;
         }
+        y++;
     }
 }
