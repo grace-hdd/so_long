@@ -132,7 +132,8 @@ int check_path(t_map *map, int start_x, int start_y)
 	}
 	found_collectibles = 0;
 	found_exits = 0;
-	dfs_flood_fill(map, start_x, start_y, visited, &found_collectibles, &found_exits);
+	dfs_flood_fill(map, start_x, start_y, visited, 
+		&found_collectibles, &found_exits);
 	i = 0;
 	while (i < map->height)
 	{
