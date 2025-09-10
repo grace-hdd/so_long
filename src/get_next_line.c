@@ -1,4 +1,6 @@
 #include "include/utils.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 char *get_next_line(int fd)
 {
@@ -28,12 +30,11 @@ char *get_next_line(int fd)
 			pos = start;
 			while (pos < size && buffer[pos] != '\n')
 			{
-				line[i] = buffer[pos];
-				i++;
+				line[pos - start] = buffer[pos];
 				pos++;
 			}
-			line[i] = '\n';
-			line[i + 1] = '\0';
+			line[pos - start] = '\n';
+			line[pos - start + 1] = '\0';
 			pos++;
 			return (line);
 		}

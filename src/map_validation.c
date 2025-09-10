@@ -2,6 +2,7 @@
 #include "include/utils.h"
 #include "include/game.h"
 #include "libft/libft.h"
+#include <stdlib.h>
 
 int validate_map_rectangular(t_map *map)
 {
@@ -77,8 +78,7 @@ int validate_map_characters(t_map *map)
 		while (x < map->width)
 		{
 			c = map->data[y][x];
-			if (c != WALL && c != EMPTY && c != COLLECTIBLE && 
-				c != EXIT && c != PLAYER && c != GHOST && c != POWER_PELLET)
+			if (!ft_strchr("10CEPGOP", c))
 			{
 				error_exit("Map contains invalid characters");
 			}
