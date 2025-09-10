@@ -72,29 +72,42 @@ void calculate_map_dimensions(t_map *map)
     map->width = (int)ft_strlen(map->data[0]);
 }
 
+static void count_element_in_cell(t_map *map, int x, int y)
+{
+    if (map->data[y][x] == COLLECTIBLE)
+        map->collectibles++;
+    else if (map->data[y][x] == EXIT)
+        map->exits++;
+    else if (map->data[y][x] == PLAYER)
+        map->players++;
+    else if (map->data[y][x] == GHOST)
+        map->ghosts++;
+}
+
+static void count_elements_in_row(t_map *map, int y)
+{
+    int x;
+
+    x = 0;
+    while (x < map->width)
+    {
+        count_element_in_cell(map, x, y);
+        x++;
+    }
+}
+
 void count_map_elements(t_map *map)
 {
+    int y;
+
     map->collectibles = 0;
     map->exits = 0;
     map->players = 0;
     map->ghosts = 0;
-    
-    int y = 0;
+    y = 0;
     while (y < map->height)
     {
-        int x = 0;
-        while (x < map->width)
-        {
-            if (map->data[y][x] == COLLECTIBLE)
-                map->collectibles++;
-            else if (map->data[y][x] == EXIT)
-                map->exits++;
-            else if (map->data[y][x] == PLAYER)
-                map->players++;
-            else if (map->data[y][x] == GHOST)
-                map->ghosts++;
-            x++;
-        }
+        count_elements_in_row(map, y);
         y++;
     }
 }
