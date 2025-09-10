@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grhaddad <grhaddad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/12 16:01:47 by grhaddad          #+#    #+#             */
-/*   Updated: 2025/06/16 11:06:09 by grhaddad         ###   ########.fr       */
+/*   Created: 2025/06/12 17:27:52 by grhaddad          #+#    #+#             */
+/*   Updated: 2025/06/16 11:02:25 by grhaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
 }

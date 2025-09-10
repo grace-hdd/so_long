@@ -1,24 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: grhaddad <grhaddad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/18 11:53:51 by grhaddad          #+#    #+#             */
+/*   Updated: 2025/06/18 11:53:51 by grhaddad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char *result;
-    size_t i = 0;
-    
-    if (!s)
-        return (NULL);
-    
-    if (start >= ft_strlen(s))
-        return (ft_malloc(1));
-    
-    result = ft_malloc(len + 1);
-    
-    while (i < len && s[start + i])
-    {
-        result[i] = s[start + i];
-        i++;
-    }
-    
-    result[i] = '\0';
-    return (result);
+	char			*substr;
+	size_t			i;
+	size_t			str_len;
+
+	if (!s)
+		return (NULL);
+	str_len = ft_strlen(s);
+	if (start >= str_len)
+		len = 0;
+	else if (len > str_len - start)
+		len = str_len - start;
+	substr = (char *)malloc(sizeof(char ) * (len + 1));
+	if (!substr)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		substr[i] = s[start + i];
+		i++;
+	}
+	substr[i] = '\0';
+	return (substr);
 }

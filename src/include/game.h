@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+# include "../../libft/libft.h"
 
 #define TILE_SIZE 32
 #define WALL '1'

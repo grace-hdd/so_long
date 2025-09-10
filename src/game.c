@@ -1,7 +1,7 @@
 #include "include/game.h"
 #include "include/utils.h"
 #include "include/map.h"
-#include "libft/libft.h"
+
 
 t_game *init_game(char *map_file)
 {
