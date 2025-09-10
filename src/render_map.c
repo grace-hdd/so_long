@@ -41,6 +41,7 @@ void draw_tile(t_game *game, int x, int y, char tile_type)
 
 void render_player(t_game *game)
 {
+	draw_tile(game, game->pacman->pos.x, game->pacman->pos.y, PLAYER);
 }
 
 void render_ui(t_game *game)

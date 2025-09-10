@@ -35,10 +35,6 @@ int validate_map(t_map *map)
 	return (1);
 }
 
-int check_path(t_map *map, int start_x, int start_y)
-{
-	return (1);
-}
 
 void print_map(t_map *map)
 {

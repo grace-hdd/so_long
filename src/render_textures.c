@@ -2,6 +2,11 @@
 #include "include/utils.h"
 #include <stdio.h>
 
+void load_sprites(t_game *game)
+{
+	load_textures(game);
+}
+
 void load_textures(t_game *game)
 {
 	int width;
