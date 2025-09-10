@@ -1,44 +1,45 @@
-#include "map.h"
-#include <stdio.h>
+#include "include/map.h"
+#include "include/utils.h"
+#include "libft/libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-#define TILE_SIZE 32
-
-typedef struct s_map {
-    char **tiles;
-    int width;
-    int height;
-} t_map;
-
-t_map *load_map(const char *filename) {
-    FILE *file = fopen(filename, "r");
-    if (!file) {
-        perror("Failed to open map file");
-        return NULL;
-    }
-
-    t_map *map = malloc(sizeof(t_map));
-    if (!map) {
-        perror("Failed to allocate memory for map");
-        fclose(file);
-        return NULL;
-    }
-
-    fscanf(file, "%d %d", &map->width, &map->height);
-    map->tiles = malloc(sizeof(char *) * map->height);
-    for (int i = 0; i < map->height; i++) {
-        map->tiles[i] = malloc(sizeof(char) * (map->width + 1));
-        fscanf(file, "%s", map->tiles[i]);
-    }
-
-    fclose(file);
-    return map;
+void free_map(t_map *map)
+{
+	if (map)
+	{
+		if (map->data)
+		{
+			for (int i = 0; map->data[i]; i++)
+				free(map->data[i]);
+			free(map->data);
+		}
+		free(map);
+	}
 }
 
-void free_map(t_map *map) {
-    for (int i = 0; i < map->height; i++) {
-        free(map->tiles[i]);
-    }
-    free(map->tiles);
-    free(map);
+int validate_map(t_map *map)
+{
+	if (!validate_map_rectangular(map))
+		return (0);
+	if (!validate_map_borders(map))
+		return (0);
+	if (!validate_map_elements(map))
+		return (0);
+	if (!validate_map_characters(map))
+		return (0);
+	return (1);
+}
+
+int check_path(t_map *map, int start_x, int start_y)
+{
+	return (1);
+}
+
+void print_map(t_map *map)
+{
+	for (int y = 0; y < map->height; y++)
+	{
+		printf("%s\n", map->data[y]);
+	}
 }

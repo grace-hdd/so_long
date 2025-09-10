@@ -3,10 +3,11 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
 
-// Function prototypes
-void handle_error(const char *message);
+void error_exit(const char *message);
 void *safe_malloc(size_t size);
-void free_resources(void *ptr);
+char *get_next_line(int fd);
 
-#endif // UTILS_H
+#endif
