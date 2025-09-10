@@ -5,7 +5,7 @@
 static void load_wall_texture(t_game *game, int *width, int *height)
 {
 	game->img_wall = mlx_xpm_file_to_image(game->mlx, 
-		"textures/Other/Walls/wall.xpm", width, height);
+		"textures/wall.xpm", width, height);
 	if (!game->img_wall)
 		error_exit("Failed to load wall texture");
 }
