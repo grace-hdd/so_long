@@ -1,41 +1,31 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-LDFLAGS = -lmlx -framework OpenGL -framework AppKit
+CC      = gcc
+CFLAGS  = -Wall -Wextra -Werror
+LDFLAGS = -lmlx -lX11 -lGL -lm
 
-SRC_DIR = src
-INC_DIR = inc
-OBJ_DIR = obj
-BIN_DIR = bin
+NAME    = so_long
 
-NAME = so_long
-TARGET = $(BIN_DIR)/$(NAME)
-
-SOURCES = main.c level.c character.c validation.c game_mac.c graphics.c \
-          utils.c anim.c render_mac.c playerlist.c \
+SRC     = main.c level.c character.c validation.c game.c graphics.c \
+          utils.c anim.c render.c playerlist.c \
           enemies.c pacman.c ai.c rules.c \
           score.c load_dir.c anim_dir.c ft_euclideandistance.c
 
-OBJECTS = $(SOURCES:%.c=$(OBJ_DIR)/%.o)
+OBJ     = $(SRC:.c=.o)
 
-all: $(TARGET)
+INC     = -Iinc
 
-$(TARGET): $(OBJECTS) | $(BIN_DIR)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
+all: $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $@ $(LDFLAGS)
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
-$(BIN_DIR):
-	mkdir -p $(BIN_DIR)
+%.o: src/%.c
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(BIN_DIR)
+	rm -f $(NAME)
 
 re: fclean all
 
