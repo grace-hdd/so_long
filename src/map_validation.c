@@ -13,7 +13,6 @@ int validate_map_rectangular(t_map *map)
 		if ((int)ft_strlen(map->data[y]) != map->width)
 		{
 			error_exit("Map must be rectangular");
-			return (0);
 		}
 		y++;
 	}
@@ -32,7 +31,6 @@ int validate_map_borders(t_map *map)
 			map->data[map->height - 1][x] != WALL)
 		{
 			error_exit("Map must be surrounded by walls");
-			return (0);
 		}
 		x++;
 	}
@@ -43,7 +41,6 @@ int validate_map_borders(t_map *map)
 			map->data[y][map->width - 1] != WALL)
 		{
 			error_exit("Map must be surrounded by walls");
-			return (0);
 		}
 		y++;
 	}
@@ -55,17 +52,14 @@ int validate_map_elements(t_map *map)
 	if (map->players != 1)
 	{
 		error_exit("Map must contain exactly one player");
-		return (0);
 	}
 	if (map->exits != 1)
 	{
 		error_exit("Map must contain exactly one exit");
-		return (0);
 	}
 	if (map->collectibles < 1)
 	{
 		error_exit("Map must contain at least one collectible");
-		return (0);
 	}
 	return (1);
 }
@@ -84,10 +78,9 @@ int validate_map_characters(t_map *map)
 		{
 			c = map->data[y][x];
 			if (c != WALL && c != EMPTY && c != COLLECTIBLE && 
-				c != EXIT && c != PLAYER && c != GHOST)
+				c != EXIT && c != PLAYER && c != GHOST && c != POWER_PELLET)
 			{
 				error_exit("Map contains invalid characters");
-				return (0);
 			}
 			x++;
 		}

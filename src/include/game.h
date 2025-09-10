@@ -10,7 +10,7 @@
 #define WALL '1'
 #define EMPTY '0'
 #define COLLECTIBLE 'C'
-#define POWER_PELLET 'P'
+#define POWER_PELLET 'O'
 #define EXIT 'E'
 #define PLAYER 'P'
 #define GHOST 'G'

@@ -25,10 +25,14 @@ void move_player(t_game *game, int direction)
             game->map->collectibles--;
         }
         
+        if (game->map->data[new_y][new_x] == EXIT)
+        {
+            check_win_condition(game);
+        }
+        
         game->map->data[new_y][new_x] = PLAYER;
         
         printf("Moves: %d\n", game->pacman->moves);
-        check_win_condition(game);
         render_game(game);
     }
 }
