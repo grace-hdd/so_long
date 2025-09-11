@@ -1,4 +1,4 @@
-#include "pacman.h"
+#include "../include/so_long.h"
 
 static void	draw_tile(t_game *g, int x, int y)
 {

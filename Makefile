@@ -1,4 +1,4 @@
-NAME = pacman
+NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLX_DIR = ./minilibx-linux

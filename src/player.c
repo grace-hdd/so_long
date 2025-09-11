@@ -1,4 +1,4 @@
-#include "pacman.h"
+#include "../include/so_long.h"
 
 static int	is_walkable(t_game *g, int x, int y)
 {

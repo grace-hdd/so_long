@@ -1,5 +1,5 @@
-#ifndef PACMAN_H
-# define PACMAN_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 # include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
@@ -14,7 +14,7 @@
 
 typedef enum e_dir {DIR_UP, DIR_RIGHT, DIR_DOWN, DIR_LEFT, DIR_NONE} t_dir;
 typedef enum e_tile {TILE_WALL, TILE_FLOOR, TILE_PELLET, TILE_POWER,
-	TILE_PLAYER_START, TILE_GHOST_START} t_tile;
+    TILE_PLAYER_START, TILE_GHOST_START, TILE_EXIT} t_tile;
 
 typedef struct s_map
 {
@@ -45,6 +45,8 @@ typedef struct s_game
 	void	*img_floor;
 	void	*img_pellet;
 	void	*img_pacman;
+    int exit_x;
+    int exit_y;
 }	t_game;
 
 int		load_map(t_game *g, const char *path);

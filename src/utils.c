@@ -1,4 +1,4 @@
-#include "pacman.h"
+#include "../include/so_long.h"
 #include <stdio.h>
 
 void	panic(const char *msg)

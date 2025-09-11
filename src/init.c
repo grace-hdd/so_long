@@ -1,4 +1,4 @@
-#include "pacman.h"
+#include "../include/so_long.h"
 
 int	init_game(t_game *g)
 {

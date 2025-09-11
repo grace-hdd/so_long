@@ -1,4 +1,4 @@
-#include "pacman.h"
+#include "../include/so_long.h"
 
 static t_dir	key_to_dir(int key)
 {

@@ -1,5 +1,13 @@
-#include "pacman.h"
+#include "../include/so_long.h"
 #include <string.h>
+int	error_and_exit(const char *msg)
+{
+	write(2, "Error\n", 6);
+	write(2, msg, strlen(msg));
+	write(2, "\n", 1);
+	return (0);
+}
+
 
 int	main(int argc, char **argv)
 {
@@ -11,11 +19,14 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	memset(&g, 0, sizeof(t_game));
-	if (!load_map(&g, argv[1]) || !validate_map(&g) || !map_has_valid_path(&g))
-	{
-		write(2, "Error\nInvalid map\n", 18);
-		return (1);
-	}
+    g.exit_x = -1;
+    g.exit_y = -1;
+	if (!load_map(&g, argv[1]))
+		return (error_and_exit("Cannot load map file"));
+	if (!validate_map(&g))
+		return (error_and_exit("Map format invalid"));
+	if (!map_has_valid_path(&g))
+		return (error_and_exit("Map has no valid path"));
 	if (!init_game(&g))
 	{
 		write(2, "Error\nInit failed\n", 19);

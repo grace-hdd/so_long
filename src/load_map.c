@@ -1,4 +1,4 @@
-#include "pacman.h"
+#include "../include/so_long.h"
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -8,8 +8,14 @@ static t_tile	parse_tile(char c, t_game *g, int x, int y)
 		return (TILE_WALL);
 	if (c == '0')
 		return (TILE_FLOOR);
-	if (c == '.')
-		return (TILE_PELLET);
+	if (c == 'E')
+    {
+        if (g->exit_x != -1 || g->exit_x != -1)
+            write(2, "Warning: multiple exits found\n", 26);
+        g->exit_x = x;
+        g->exit_y = y;
+		return (TILE_EXIT);
+    }
 	if (c == 'P')
 	{
 		g->player.x = x;
@@ -39,6 +45,8 @@ int	load_map(t_game *g, const char *path)
 			g->map.tiles[r][c] = parse_tile(line[c], g, c, r);
 			c++;
 		}
+        if (r > 0 && g->map.cols != c)
+            return (0);
 		g->map.cols = c;
 		r++;
 	}
@@ -70,5 +78,7 @@ int	validate_map(t_game *g)
 int	map_has_valid_path(t_game *g)
 {
 	(void)g;
+    if (g->exit_x == -1 || g->exit_y == -1)
+        return error_and_exit("Map must have an exit");
 	return (1);
 }
