@@ -11,10 +11,10 @@ int	init_game(t_game *g)
 	g->player.lives = 3;
 	w = TILE_SIZE;
 	h = TILE_SIZE;
-	g->img_wall = mlx_xpm_file_to_image(g->mlx, "assets/wall.xpm", &w, &h);
-	g->img_floor = mlx_xpm_file_to_image(g->mlx, "assets/floor.xpm", &w, &h);
-	g->img_pellet = mlx_xpm_file_to_image(g->mlx, "assets/pellet.xpm", &w, &h);
-	g->img_pacman = mlx_xpm_file_to_image(g->mlx, "assets/pacman.xpm", &w, &h);
+	g->img_wall = mlx_xpm_file_to_image(g->mlx, "textures/Other/Walls/wall.xpm", &w, &h);
+	g->img_floor = mlx_xpm_file_to_image(g->mlx, "textures/Other/Walls/black.xpm", &w, &h);
+	g->img_pellet = mlx_xpm_file_to_image(g->mlx, "textures/Other/Pacdots/pacdot_food.xpm", &w, &h);
+	g->img_pacman = mlx_xpm_file_to_image(g->mlx, "textures/Pac-Man/pac_closed.xpm", &w, &h);
 	g->win = mlx_new_window(g->mlx, g->map.cols * TILE_SIZE,
 			g->map.rows * TILE_SIZE, "Pacman");
 	return (1);
